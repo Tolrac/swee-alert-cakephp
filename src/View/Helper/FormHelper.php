@@ -1,4 +1,5 @@
 <?php
+
 namespace SweetAlertHelper\View\Helper;
 
 use Cake\View\Helper\FormHelper as BaseHelper;
@@ -20,7 +21,7 @@ class FormHelper extends BaseHelper
             'dangerMode' => true,
             'icon' => 'error' // Changed 'type' to 'icon' for CakePHP 5.x
         ];
-        $confirm = "(function(e,obj){ e.preventDefault(); e.stopPropagation(); swal(".json_encode($swal).").then(function(res){ if(res.isConfirmed){ ".$okCode." } }); })(event,this)";
+        $confirm = "(function(e,obj){ e.preventDefault(); e.stopPropagation(); swal(" . json_encode($swal) . ").then(function(res){ if(res.isConfirmed){ " . $okCode . " } }); })(event,this)";
 
         $escape = $options['escape'] ?? true;
         if ($escape === false) {
@@ -53,7 +54,7 @@ class FormHelper extends BaseHelper
             $formOptions['target'] = $options['target'];
             unset($options['target']);
         }
-        $templater = $this->getView()->getTemplater();
+        $templater = $this->templater();
 
         $restoreAction = $this->_lastAction;
         $this->_lastAction($url);
