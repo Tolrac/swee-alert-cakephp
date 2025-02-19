@@ -5,7 +5,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
-    (global.Swal = factory());
+    (global.Sweetalert2 = factory());
 }(this, (function () { 'use strict';
 
 var styles = "/* Add your CSS styles here */"; // You can keep the original styles or modify them as needed
