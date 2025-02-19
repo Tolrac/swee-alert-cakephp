@@ -28,6 +28,18 @@ public function initialize()
 }
 ```
 
+In your 'src/Application.php', load the plugin in the `bootstrap()` method:
+
+```
+public function bootstrap(): void
+{
+	...
+	$this->addPlugin('SweetAlertHelper');
+	...
+}
+
+```
+
 and in the template layout (or in the views), load the js file:
 
 ```
