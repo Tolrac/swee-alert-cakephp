@@ -1,4 +1,5 @@
 <?php
+
 namespace SweetAlertHelper\View\Helper;
 
 use Cake\View\Helper\HtmlHelper as BaseHelper;
@@ -19,7 +20,7 @@ class HtmlHelper extends BaseHelper
             'dangerMode' => true,
             'icon' => 'error' // Changed 'type' to 'icon' for CakePHP 5.x
         ];
-        $confirm = "(function(e,obj){ e.preventDefault(); e.stopPropagation(); swal(".json_encode($swal).").then(function(res){ if(res.isConfirmed){ window.location.href = obj.getAttribute('href'); } }); })(event,this)";
+        $confirm = "(function(e,obj){ e.preventDefault(); e.stopPropagation(); swal.fire(" . json_encode($swal) . ").then(function(res){ if(res.isConfirmed){ window.location.href = obj.getAttribute('href'); } }); })(event,this)";
 
         $escape = $options['escape'] ?? true;
         if ($escape === false) {
